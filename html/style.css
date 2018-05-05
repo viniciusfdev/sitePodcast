@@ -9,19 +9,6 @@ body{
 #sec-menu{
   background-color: blue;
   color: black;
-}
-
-
-#sec-menu a:hover{
-  color: green;
-  cursor: pointer;
-}
-
-#sec-menu i:hover{
-  cursor: pointer;
-}
-
-#sec-redesocial i{
   cursor: pointer;
 }
 
@@ -43,11 +30,6 @@ tbody {
     padding: 10px;
     background-color: black;
     border: 2px solid white;
-}
-
-.gamb1{
-  opacity: 0;
-  background-color: green;
 }
 
 .navbar li{
