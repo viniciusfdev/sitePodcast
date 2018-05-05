@@ -1,16 +1,24 @@
-function dragMENU(){
-  if (document.getElementById("iconOpenOption").style.display == "none") {
-      document.getElementById("iconOpenOption").style.display = "block";
-  }else {
-      document.getElementById("iconOpenOption").style.display = "none";
-  }
+var data;
+function preload(){
+  jsonn1 = loadJSON("dataPodCast.json");
+}
+
+function setup() {
+    testeJSON();
+}
+
+function draw() {
+}
+
+function testeJSON(){
+  document.getElementById('teste').innerHTML = jsonn1[0].titulo;
+  document.getElementById('teste').setAttribute('href', jsonn1[0].link);
 }
 
 function chamaTable(){
   insereTable('tableEsport');
   insereTable('tablePodcast');
   insereTable('tableGameplays');
-  leArquivo();
 }
 /*INSERE A TABLE AUTOMATICAMENTE*/
 function insereTable(tableName){
@@ -27,9 +35,3 @@ function insereTable(tableName){
 }
 
 //le os arquivos que contém os links
-function leArquivo(){
-    var reader = new FileReader();
-    reader.onload = function(){
-        document.getElementById('teste').innerHTML = this.result;
-    }
-}
