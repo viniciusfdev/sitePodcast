@@ -1,37 +1,44 @@
-var data;
+var dataPodCast, dataEsport, dataGameplay;
+
 function preload(){
-  jsonn1 = loadJSON("dataPodCast.json");
+  dataPodCast = loadJSON("dataPodCast.json");
+  dataEsport = loadJSON("dataEsport.json");
+  dataGameplay = loadJSON("dataGameplay.json");
 }
 
 function setup() {
-    testeJSON();
+  chamaTable();
 }
 
 function draw() {
 }
 
-function testeJSON(){
-  document.getElementById('teste').innerHTML = jsonn1[0].titulo;
-  document.getElementById('teste').setAttribute('href', jsonn1[0].link);
-}
-
 function chamaTable(){
-  insereTable('tableEsport');
   insereTable('tablePodcast');
   insereTable('tableGameplays');
+  insereTable('tableEsport');
 }
-/*INSERE A TABLE AUTOMATICAMENTE*/
+/*INSERE NA TABLE AUTOMATICAMENTE*/
 function insereTable(tableName){
-  //pega o id da tabela passada como parametro
-  var table = document.getElementById(tableName).getElementsByTagName('tbody')[0];
-  //cria uma linha vazia
-  var row = table.insertRow(table.rows.length);
-  //cria uma celula de dados
-  var celula = row.insertCell(0);
-  //adiciona
-  var value  = document.createTextNode('kkkkkkkkkk');
-  celula.appendChild(value);
+  var table, value, data, row, celula;
 
+  if(tableName === "tablePodcast"){
+    data = dataPodCast;
+  }else if(tableName === "tableEsport"){
+    data = dataEsport;
+  }else{
+    data = dataGameplay;
+  }
+
+  table = document.getElementById(tableName).getElementsByTagName('tbody')[0];
+
+  for(i=0; i<5 ; i++){
+    //pega o id da tabela passada como parametro
+    row = document.createElement("tr")    //cria uma linha vazia
+    celula = document.createElement("td");    //cria uma celula de dados
+    value  = document.createTextNode(data[i].titulo); //adiciona
+    celula.appendChild(value);
+    row.appendChild(celula);
+    table.appendChild(row);
+  }
 }
-
-//le os arquivos que contém os links
