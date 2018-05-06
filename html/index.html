@@ -28,66 +28,76 @@
 
   <body>
     <div class="conteiner-fluid">
-      <!--Gambiarra-->
-      <div class="row">
-        <div class="col-md" id="sec-menu">
+      <!--Secao de menus-->
+      <div class="row menu">
+        <div class="col-md-1" id="sec-menu-iphone">
+          <a onclick="showMenu()" style="float: right;">&#9776;</a>
+        </div>
+        <div class="col-md-11" id="sec-menu-desktop">
+          <a href="#home">INICIO</a>
+          <a href="#sec-podcast">PODCAST</a>
+          <a href="#sec-gameplays">GAMEPLAYS</a>
+          <a href="#sec-esport">E-SPORTS</a>
+          <a href="#sec-redesocial">REDE SOCIAL</a>
         </div>
       </div>
 
-
-      <div class="row">
-        <div class="col-md-6" id="sec-podcast">
+      <!--Secao de Podcast-->
+      <div class="row title"><b>PODCAST</b></div>
+      <div class="row" id="sec-podcast">
+        <div class="col-md-6">
             <div class="content-wrap overflow-y:auto">
-              <table id="tableEsport">
-                <thead>
-                  <tr>
-                    <th id="teste">
-                        PODCAST
-                    </th>
-                  </tr>
-                </thead>
+              <table id="tablePodcast">
                 <tbody>
                 </tbody>
               </table>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="content-wrap">
+              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" allowfullscreen></iframe></div>
+            </div>
+        </div>
+      </div>
 
-        <div class="col-md-6" id="sec-gameplays">
+      <!--Secao de Gameplays-->
+      <div class="row title"><b>GAMEPLAYS</b></div>
+      <div class="row"  id="sec-gameplays">
+        <div class="col-sm-6">
             <div class="content-wrap">
               <table id="tableGameplays">
-                <thead>
-                  <tr>
-                    <th>
-                        GAMEPLAYS
-                    </th>
-                  </tr>
-                </thead>
                 <tbody>
                 </tbody>
               </table>
             </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md" id="sec-esport">
+        <div class="col-sm-6">
             <div class="content-wrap">
-              <table id="tablePodcast">
-                <thead>
-                  <tr>
-                    <th>
-                        E-SPORT
-                    </th>
-                  </tr>
-                </thead>
+              <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/z9Ul9ccDOqE" allowfullscreen></iframe></div>
+            </div>
+        </div>
+      </div>
+
+      <!--Secao de E-Sports-->
+      <div class="row title"><b>E-SPORTS</b></div>
+      <div class="row" id="sec-esport">
+        <div class="col-md-6">
+            <div class="content-wrap">
+              <table id="tableEsport">
                 <tbody>
                 </tbody>
               </table>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="content-wrap">
+              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" allowfullscreen></iframe></div>
+            </div>
+        </div>
       </div>
 
-        <div class="row">
+      <!--Secao de Rede-Social-->
+      <div class="row">
         <div class="col-md content-wrap text-center" id="sec-redesocial">
             <ul class="list-inline social">
               <li class="list-inline-item">
@@ -111,9 +121,8 @@
             </ul>
         </div>
       </div>
-
+      
     </div>
-
   </body>
 
 </html>
