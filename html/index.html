@@ -29,21 +29,21 @@
   <body>
     <div class="conteiner-fluid">
       <!--Secao de menus-->
-      <div class="row menu">
-        <div class="col-md-1" id="sec-menu-iphone">
-          <a onclick="showMenu()" style="float: right;">&#9776;</a>
-        </div>
-        <div class="col-md-11" id="sec-menu-desktop">
+      <div class="row menu" id="nav-menu">
+        <div class="col-md-10" id="sec-menu-desktop">
           <a href="#home">INICIO</a>
-          <a href="#sec-podcast">PODCAST</a>
-          <a href="#sec-gameplays">GAMEPLAYS</a>
-          <a href="#sec-esport">E-SPORTS</a>
+          <a href="#podcast">PODCAST</a>
+          <a href="#gameplays">GAMEPLAYS</a>
+          <a href="#esport">E-SPORTS</a>
           <a href="#sec-redesocial">REDE SOCIAL</a>
+        </div>
+        <div class="col-md-2" id="sec-menu-iphone">
+          <a onclick="showMenu()" >&#9776;</a>
         </div>
       </div>
 
       <!--Secao de Podcast-->
-      <div class="row title"><b>PODCAST</b></div>
+      <div class="row title" id="podcast" style="padding-top: 4em;"><b>PODCAST</b></div>
       <div class="row" id="sec-podcast">
         <div class="col-md-6">
             <div class="content-wrap overflow-y:auto">
@@ -55,13 +55,13 @@
         </div>
         <div class="col-md-6">
             <div class="content-wrap">
-              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" allowfullscreen></iframe></div>
+              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
             </div>
         </div>
       </div>
 
       <!--Secao de Gameplays-->
-      <div class="row title"><b>GAMEPLAYS</b></div>
+      <div class="row title" id="gameplays"><b>GAMEPLAYS</b></div>
       <div class="row"  id="sec-gameplays">
         <div class="col-sm-6">
             <div class="content-wrap">
@@ -73,13 +73,13 @@
         </div>
         <div class="col-sm-6">
             <div class="content-wrap">
-              <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/z9Ul9ccDOqE" allowfullscreen></iframe></div>
+              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
             </div>
         </div>
       </div>
 
       <!--Secao de E-Sports-->
-      <div class="row title"><b>E-SPORTS</b></div>
+      <div class="row title" id="esport"><b>E-SPORTS</b></div>
       <div class="row" id="sec-esport">
         <div class="col-md-6">
             <div class="content-wrap">
@@ -91,7 +91,7 @@
         </div>
         <div class="col-md-6">
             <div class="content-wrap">
-              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" allowfullscreen></iframe></div>
+              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
             </div>
         </div>
       </div>
@@ -121,7 +121,7 @@
             </ul>
         </div>
       </div>
-      
+
     </div>
   </body>
 

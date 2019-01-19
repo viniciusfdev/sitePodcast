@@ -18,6 +18,11 @@ tbody {
     border: 2px solid white;
 }
 
+td a{
+  text-decoration: none;
+  color: blue;
+}
+
 tbody::-webkit-scrollbar {
     width: 1em;
 }
@@ -35,12 +40,23 @@ tbody::-webkit-scrollbar-track-piece {
   background-color: white;
 }
 
-tbody::-webkit-scrollbar-button:vertical:increment {
-    background-image: url("https://www.google.com.br/search?q=seta+png&client=opera&tbm=isch&tbs=rimg:CQzEwblrSUriIjhzvvX3XBR9UfCY8gvpatPSkg6vD4g7YwYAGab2ifzyCS3b9XYBgVmTckUM_1lBvgRequDEMUjPXICoSCXO-9fdcFH1REfCiO73dhWlhKhIJ8JjyC-lq09IRj1UY2Gyi-R4qEgmSDq8PiDtjBhEgi2xhVHq0ZioSCQAZpvaJ_1PIJETwR2T2Ef6TgKhIJLdv1dgGBWZMRRReqYpD71T8qEglyRQz-UG-BFxHBPioCg2s25ioSCaq4MQxSM9cgET6vOOeJ-acz&tbo=u&sa=X&ved=2ahUKEwjkwM3s4u_aAhWEIZAKHWJjCJ8Q9C96BAgBEBs&biw=1242&bih=598&dpr=1.1#imgdii=G06gm0ZTcnKO9M:&imgrc=kKpo2f7QUJpXOM");
+tr, td, button{
+  width: 1%;
+  white-space: pre-line;
 }
 
-tbody::-webkit-scrollbar-button:vertical:decrement {
-    background-image: url("https://www.google.com.br/search?q=seta+png&client=opera&tbm=isch&tbs=rimg:CQzEwblrSUriIjhzvvX3XBR9UfCY8gvpatPSkg6vD4g7YwYAGab2ifzyCS3b9XYBgVmTckUM_1lBvgRequDEMUjPXICoSCXO-9fdcFH1REfCiO73dhWlhKhIJ8JjyC-lq09IRj1UY2Gyi-R4qEgmSDq8PiDtjBhEgi2xhVHq0ZioSCQAZpvaJ_1PIJETwR2T2Ef6TgKhIJLdv1dgGBWZMRRReqYpD71T8qEglyRQz-UG-BFxHBPioCg2s25ioSCaq4MQxSM9cgET6vOOeJ-acz&tbo=u&sa=X&ved=2ahUKEwjkwM3s4u_aAhWEIZAKHWJjCJ8Q9C96BAgBEBs&biw=1242&bih=598&dpr=1.1#imgdii=G06gm0ZTcnKO9M:&imgrc=kKpo2f7QUJpXOM");
+button:active{
+  opacity: 0.5;
+}
+
+button:hover{
+  color: white;
+  background: black;
+}
+
+button:visited{
+  color: blue;
+  background: red;
 }
 
 a{
@@ -60,35 +76,37 @@ a:hover{
   background: black;
 }
 
+.menu div{
+
+}
+
+#sec-menu-desktop{
+  width: 80%;
+  position: fixed;
+  z-index: 100000;
+  background: white;
+}
+
 #sec-menu-desktop, .title b{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-  background: black;
-  background: rgba(122,49,0,1);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(122,49,0,1) 0%, rgba(0,0,0,1) 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(122,49,0,1)), color-stop(100%, rgba(0,0,0,1)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(122,49,0,1) 0%, rgba(0,0,0,1) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(122,49,0,1) 0%, rgba(0,0,0,1) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(122,49,0,1) 0%, rgba(0,0,0,1) 100%);
-  background: radial-gradient(ellipse at center, rgba(122,49,0,1) 0%, rgba(0,0,0,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a3100', endColorstr='#000000', GradientType=1 );
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 #sec-menu-desktop a{
-  color: white;
-  font-size: 20px;
-  padding-left: 20px;
+  color: black;
+  font-size: 1em;
+  padding-left: 2em;
   display: inline;
 }
 
 #sec-menu-iphone{
-  color: white;
+  color: black;
   display: none;
 }
 
 #sec-menu-iphone a{
-  font-size: 30px;
+  font-size: 3em;
+  float: right;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -126,6 +144,7 @@ a:hover{
   left: 0;
   width: 100%;
   height: 100%;
+  border: 2px solid white;
 }
 
 .social li{
@@ -136,7 +155,6 @@ a:hover{
 @media (max-width:700px){
   #sec-menu-desktop{
     display: none;
-    float:left;
   }
   #sec-menu-desktop a{
     display: block;
