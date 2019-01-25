@@ -12,10 +12,7 @@ table {
 tbody {
     display: inline-block;
     width: 100%;
-    overflow-y: auto;
-    padding: 10px;
-    background-color: black;
-    border: 2px solid white;
+    overflow-y: auto;  
 }
 
 td a{
