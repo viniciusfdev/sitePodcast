@@ -76,15 +76,13 @@ a:hover{
   background: black;
 }
 
-.menu div{
-
-}
-
-#sec-menu-desktop{
-  width: 80%;
-  position: fixed;
-  z-index: 100000;
+.menu{
   background: white;
+  position: fixed;
+  width: 100%;
+  z-index: 100000;
+  margin: 0;
+
 }
 
 #sec-menu-desktop, .title b{
@@ -95,18 +93,21 @@ a:hover{
 #sec-menu-desktop a{
   color: black;
   font-size: 1em;
-  padding-left: 2em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
   display: inline;
 }
 
 #sec-menu-iphone{
   color: black;
+  left: 1em;
   display: none;
 }
 
 #sec-menu-iphone a{
   font-size: 3em;
-  float: right;
+  position: relative;
+  left: 5px;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -155,12 +156,14 @@ a:hover{
 @media (max-width:700px){
   #sec-menu-desktop{
     display: none;
+    width: 80%;
   }
   #sec-menu-desktop a{
     display: block;
   }
   #sec-menu-iphone{
     display: inline;
+    width: 20%;
   }
 }
 

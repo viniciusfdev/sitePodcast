@@ -65,7 +65,8 @@ function insereTable(tableName){
   }
   table = document.getElementById(tableName).getElementsByTagName('tbody')[0];
 
-  for(i=19; i>=0 ; i--){
+  var count = Object.keys(data).length;
+  for(i = count-1; i>= 0 ; i--){
     row = document.createElement("tr")
     celula = document.createElement("td");
     link = document.createElement("button");
