@@ -4,23 +4,29 @@ function preload(){
   dataPodCast = loadJSON("dataPodCast.json");
   dataEsport = loadJSON("dataEsport.json");
   dataGameplay = loadJSON("dataGameplay.json");
-  $("#buttonpodcast").click(function(){
-    $("#viewpodcast").show(500);
-    $("#viewesport").hide(500);
-    $("#viewgameplays").hide(500);
-    resizeTable();
-  });
-  $("#buttongameplays").click(function(){
-    $("#viewpodcast").hide(500);
-    $("#viewesport").hide(500);
-    $("#viewgameplays").show(500);
-    resizeTable();
-  });
-  $("#buttonesport").click(function(){
-    $("#viewpodcast").hide(500);
-    $("#viewesport").show(500);
-    $("#viewgameplays").hide(500);
-    resizeTable();
+
+  $(document).ready(function(){
+    $("#buttonpodcast").click(function(){
+      $("#viewpodcast").stop().fadeIn(500);
+      $("#viewesport").stop().hide(0);
+      $("#viewgameplays").stop().hide(0);
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+      showMenu();
+    });
+    $("#buttongameplays").click(function(){
+      $("#viewgameplays").stop().fadeIn(500);
+      $("#viewpodcast").hide(0);
+      $("#viewesport").hide(0);
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+      showMenu();
+    });
+    $("#buttonesport").click(function(){
+      $("#viewesport").stop().fadeIn(500);
+      $("#viewpodcast").hide(0);
+      $("#viewgameplays").hide(0);
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+      showMenu();
+    });
   });
 }
 
@@ -49,13 +55,13 @@ function showMenu(){
   if(window.innerWidth < 700){
     var desk = document.getElementById("sec-menu-desktop");
     var iphone =  document.getElementById("sec-menu-iphone");
-
     if(desk.style.display == "none"){
       desk.style.display = "inline";
     }else{
       desk.style.display = "none";
     }
   }
+  resizeTable();
 }
 
 function chamaTable(){
