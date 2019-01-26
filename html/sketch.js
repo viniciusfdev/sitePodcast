@@ -4,6 +4,24 @@ function preload(){
   dataPodCast = loadJSON("dataPodCast.json");
   dataEsport = loadJSON("dataEsport.json");
   dataGameplay = loadJSON("dataGameplay.json");
+  $("#buttonpodcast").click(function(){
+    $("#viewpodcast").show(500);
+    $("#viewesport").hide(500);
+    $("#viewgameplays").hide(500);
+    resizeTable();
+  });
+  $("#buttongameplays").click(function(){
+    $("#viewpodcast").hide(500);
+    $("#viewesport").hide(500);
+    $("#viewgameplays").show(500);
+    resizeTable();
+  });
+  $("#buttonesport").click(function(){
+    $("#viewpodcast").hide(500);
+    $("#viewesport").show(500);
+    $("#viewgameplays").hide(500);
+    resizeTable();
+  });
 }
 
 function setup() {
@@ -11,7 +29,7 @@ function setup() {
   chamaTable();
   showMenu();
   window.addEventListener("resize", resizeTable);
-  window.addEventListener("resize", block)
+  window.addEventListener("resize", block);
 }
 
 function draw() {

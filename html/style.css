@@ -12,7 +12,7 @@ table {
 tbody {
     display: inline-block;
     width: 100%;
-    overflow-y: auto;  
+    overflow-y: auto;
 }
 
 td a{
@@ -93,6 +93,7 @@ a:hover{
   padding-right: 0.5em;
   padding-left: 0.5em;
   display: inline;
+  cursor: pointer;
 }
 
 #sec-menu-iphone{
@@ -109,20 +110,20 @@ a:hover{
   padding-right: 5%;
 }
 
-#sec-podcast{
-  background-color: black;
-}
-
-#sec-gameplays{
-  background-color: black;
-}
-
-#sec-esport{
+#sec-podcast, #sec-esport, #sec-gameplays{
   background-color: black;
 }
 
 #sec-redesocial{
   background-color: white;
+}
+
+#viewgameplays, #viewesport {
+  display: none;
+}
+
+#viewpodcast, #viewgameplays, #viewesport {
+  transition: opacity .5s linear;
 }
 
 .content-wrap{

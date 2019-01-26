@@ -7,7 +7,7 @@
     <meta name = "viewport" content="width=device-width, initial-scale = 1" />
     <meta name="author" content="Vinicius França" />
     <meta charset="utf-8"/>
-    <title>Os Invisíveis</title>
+    <title>DEVANEIO PODCAST</title>
 
     <!--Css links-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
@@ -21,6 +21,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
 
     <!--Local Files-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="sketch.js"></script>
     <script type="text/javascript" src="dataPodCast.json"></script>
 
@@ -34,65 +38,71 @@
           <a onclick="showMenu()" >&#9776;</a>
         </div>
         <div class="col-md-10" id="sec-menu-desktop">
-          <a href="#home" onclick="showMenu()">INICIO</a>
-          <a href="#podcast" onclick="showMenu()">PODCAST</a>
-          <a href="#gameplays" onclick="showMenu()">GAMEPLAYS</a>
-          <a href="#esport" onclick="showMenu()">E-SPORTS</a>
-          <a href="#sec-redesocial" onclick="showMenu()">REDE SOCIAL</a>
+          <!--<a href="#home" onclick="showMenu();showView(0);">INICIO</a>-->
+          <a id="buttonpodcast" onclick="showMenu();">PODCAST</a>
+          <a id="buttongameplays" onclick="showMenu();">GAMEPLAYS</a>
+          <a id="buttonesport" onclick="showMenu();">E-SPORTS</a>
+          <a href="#sec-redesocial" onclick="showMenu();">REDE SOCIAL</a>
         </div>
       </div>
 
       <!--Secao de Podcast-->
-      <div class="row title" id="podcast" style="padding-top: 4em;"><b>PODCAST</b></div>
-      <div class="row" id="sec-podcast">
-        <div class="col-md-6">
-            <div class="content-wrap overflow-y:auto">
-              <table id="tablePodcast">
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="content-wrap">
-              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-            </div>
+      <div id="viewpodcast" style="padding-top: 4em;">
+        <div class="row title" id="podcast" ><b>PODCAST</b></div>
+        <div class="row" id="sec-podcast">
+          <div class="col-md-6">
+              <div class="content-wrap overflow-y:auto">
+                <table id="tablePodcast">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="content-wrap">
+                <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+              </div>
+          </div>
         </div>
       </div>
 
       <!--Secao de Gameplays-->
-      <div class="row title" id="gameplays"><b>GAMEPLAYS</b></div>
-      <div class="row"  id="sec-gameplays">
-        <div class="col-sm-6">
-            <div class="content-wrap">
-              <table id="tableGameplays">
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="content-wrap">
-              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-            </div>
+      <div id="viewgameplays"  style="padding-top: 4em;">
+        <div class="row title" id="gameplays"><b>GAMEPLAYS</b></div>
+        <div class="row"  id="sec-gameplays">
+          <div class="col-sm-6">
+              <div class="content-wrap">
+                <table id="tableGameplays">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="col-sm-6">
+              <div class="content-wrap">
+                <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+              </div>
+          </div>
         </div>
       </div>
 
-      <!--Secao de E-Sports-->
-      <div class="row title" id="esport"><b>E-SPORTS</b></div>
-      <div class="row" id="sec-esport">
-        <div class="col-md-6">
-            <div class="content-wrap">
-              <table id="tableEsport">
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="content-wrap">
-              <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-            </div>
+      <div id="viewesport" style="padding-top: 4em;">
+        <!--Secao de E-Sports-->
+        <div class="row title" id="esport"><b>E-SPORTS</b></div>
+        <div class="row" id="sec-esport">
+          <div class="col-md-6">
+              <div class="content-wrap">
+                <table id="tableEsport">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="content-wrap">
+                <div class="video-wrapper"><iframe width="100%" height="auto" src="https://www.youtube.com/embed/z9Ul9ccDOqE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+              </div>
+          </div>
         </div>
       </div>
 
