@@ -27,7 +27,8 @@ function start() {
     });
 
   }).then(function(response){
-    console.log(response);
+    console.log(response.result.items);
+    response.result.items = Array.prototype.reverse.call(response.result.items);
     pl_podcastR = response.result;
     console.log('sucessifuly req 1:podcast');
 
@@ -44,7 +45,7 @@ function start() {
     });
 
     }).then(function(response){
-
+      response.result.items = Array.prototype.reverse.call(response.result.items);
       pl_reviewR = response.result;
       console.log('sucessifuly req 2:review');
 
@@ -61,6 +62,7 @@ function start() {
       });
 
     }).then(function(response){
+      response.result.items = Array.prototype.reverse.call(response.result.items);
       pl_gameplayR = response.result;
       console.log('sucessifuly req 3:gameplay');
 
@@ -69,11 +71,13 @@ function start() {
 
   }).then(function(){
     insereTable(pl_podcastR);
+    $("#podcast").click(function(){insereTable(pl_podcastR);});
+    $("#gameplay").click(function(){insereTable(pl_gameplayR);});
+    $("#review").click(function(){insereTable(pl_reviewR);});
   });
 
 }
 
-/*INSERE NA TABLE AUTOMATICAMENTE*/
 function insereTable(table_data){
   var table, data, row, celula;
 
@@ -81,9 +85,9 @@ function insereTable(table_data){
   table = document.getElementById('table-content').getElementsByTagName('tbody')[0];
 
   var count = Object.keys(data).length;
-  console.log(count);
-  for(i = count-1; i>= 0 ; i--){
-    row = document.createElement("tr")
+  
+  for(i = 0; i < count ; i++){
+    row = document.createElement("tr");
     celula = document.createElement("td");
     link = document.createElement("button");
     link.setAttribute("href", 'https://www.youtube.com/embed/'+data[i].snippet.resourceId.videoId);
@@ -92,35 +96,46 @@ function insereTable(table_data){
     row.appendChild(celula);
     table.appendChild(row);
     video = document.getElementById("video-container").getElementsByTagName("iframe")[0];
-    video.setAttribute("src", 'https://www.youtube.com/embed/'+data[i].snippet.resourceId.videoId);
-    link.addEventListener("click", function(){relationIframe(this)});
-    link.addEventListener("mouseenter", function(){relationIframe(data[i])});
-    link.addEventListener("mouseover", function(){relationIframe(data[i])});
+    link.addEventListener("click", function(){relationIframe(this);});
+    row.addEventListener("mouseover", function(){showPopUpDescription(this);});
+    row.addEventListener("mouseout", function(){hidePopUpDescription(this);});
+    if(i == 0){
+      document.getElementById("video-container").getElementsByTagName("iframe")[0].setAttribute("src", 'https://www.youtube.com/embed/'+data[i].snippet.resourceId.videoId);
+    }
   }
+  document.getElementById('table-content').getElementsByTagName('tbody')[0] = table;
 }
 
-//cria a relacao do iframe com o episodio escolhido
 function relationIframe(Obj){
   video = document.getElementById("video-container").getElementsByTagName("iframe")[0];
   video.setAttribute("src", Obj.getAttribute("href"));
 }
 
 function showPopUpDescription(Obj){
-  var img = $("#popup-description").getElementsByTagName("img")[0];
-  img.attr("src", Obj.snippet.thumbnails.medium.url);
-  document.getElementById("description-item").innerHTML("<b>Descrição:</b>"+Obj.snippet.description);
-  $("#popup-description").show("fast");
+  var playlist = document.getElementById("content-title").getElementsByTagName("h3")[0].innerHTML;
+  switch(playlist){
+    case "PODCAST":
+      Obj = pl_podcastR.items[Obj.rowIndex];
+    break;
+    case "REVIEW":
+      Obj = pl_reviewR.items[Obj.rowIndex];
+    break;
+    case "GAMEPLAY":
+      Obj = pl_gameplayR.items[Obj.rowIndex];
+    break;
+    default:
+      Obj = pl_podcastR.items[Obj.rowIndex];
+    break;
+  }
+  var img = document.getElementById("popup-description").getElementsByTagName("img")[0];
+  img.setAttribute("src", Obj.snippet.thumbnails.medium.url);
+  document.getElementById("description-item").innerHTML = "<b>Descri&ccedil&atildeo:</b>"+Obj.snippet.description;
+  $("#popup-description").css("display", "flex");
 }
 
 function hidePopUpDescription(){
-  $("#popup-description").hide("fast");
+  $("#popup-description").hide();
 }
-
-$(document).ready(function(){
-  $("#podcast").on("click", insereTable(pl_podcastR));
-  $("#gameplay").on("click", insereTable(pl_gameplayR));
-  $("#review").on("click", insereTable(pl_reviewR));
-});
 
 // 1. Load the JavaScript client library.
 gapi.load('client', start);
