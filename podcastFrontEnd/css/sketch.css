@@ -1,8 +1,9 @@
 body{
   margin: 0;
+  padding: 0;
   border: 0;
   background-color: #bebebe;
-  display: inline-block;
+  font-family: neoteric-bold;  
 }
 
 ::-webkit-scrollbar {
@@ -26,8 +27,7 @@ body{
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
   align-content: space-around;
   margin-bottom: 1em;
@@ -38,50 +38,62 @@ body{
   display: flex;
   padding: 1em;
   margin: 1em 2em 1em 2em;
-
 }
 
-#nav{
+nav{
   background-color: #f2f2f2 ;
-  position: fixed;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  width: 100%;
+  padding: 0;
 }
 
-#logo{
-  flex-basis: 20%;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+ul{
+  margin: 0 auto;
+  padding: 22px;
+  text-align: right;
 }
 
-#menu{
-  flex-basis: 10%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-#menu-button{
-  display: none;
-}
-
-#menu a, #content-title h3{
-  text-decoration: none;
-  color: #5a5a5a;
-  font-size: 2em;
-  font-family: neoteric-bold;
+ul li{
   padding-left: 1em;
-  margin-block-end: 0;
+  font-family: neoteric-bold;
+  list-style: none;
+  display: inline-block;
 }
 
-#menu a:hover{
+ul li:hover{
   cursor: pointer;
   font-family: neoteric-regular;
 }
 
-#content{
+ul li a{
+  color: #5a5a5a;
+  text-decoration: none;
+}
+
+.toggle{
+  width: 80%;
+  padding: 0.5em 2em;
+  text-align: right;
+  display: none;
+}
+
+#logo{
+  z-index: 10000;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+
+nav, #content-title h3{
+  color: #5a5a5a;
+  font-size: 2em;
+}
+
+#content-title h3{
+  color: #5a5a5a;
+  padding-left: 1em;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 #content-title{
@@ -104,7 +116,7 @@ body{
 
 #video-content{
     width: 100%;
-    height: 350px;
+    height: 300px;
 }
 
 #table-container{
@@ -121,15 +133,19 @@ body{
   box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
 }
 
-#table-content, button{
-  width: 100%;
-}
-
-#table-content{
+#table-content tbody{
+  display: block;
+  max-height: 300px;
   overflow-y: auto;
 }
 
-button{
+#table-content, button, tr, td{
+  width: 100%;
+  text-align: left;
+}
+
+#table-content button{
+  font-size: 1em;
   background-color: #f2f2f2 ;
   border-radius: 2px 2px 2px 2px;
   -moz-border-radius: 2px 2px 2px 2px;
@@ -142,6 +158,7 @@ button{
 }
 
 #ads-container{
+  max-height: 300px;
   flex: 1;
   background-color: #5a5a5a ;
   border-radius: 5px 5px 5px 5px;
@@ -179,18 +196,15 @@ button{
 }
 
 #popup-description{
-  width: 320px;
+  width: 250px;
   height: auto;
   position: absolute;
-  left: 1000px;
   top: 200px;
   display: none;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-
   padding: 5px;
-
   background-color: #f2f2f2;
   border-radius: 2px 2px 2px 2px;
   -moz-border-radius: 2px 2px 2px 2px;
@@ -204,37 +218,18 @@ button{
 
 #description-item, #description-item img{
   flex: 1;
+  height: 150px;
   text-align: justify;
 }
 
-@media (max-width: 900px) {
+@media all and (max-width: 900px) {
+
   #ads-container{
-    margin-bottom: 5em;
-  }
-
-  #menu-button{
-    display: block;
-
-  }
-  #nav{
-    display: block;
-    width: 100%;
-  }
-
-  #menu{
-    display: none;
-  }
-
-  #menu a{
-    display: block;
-    padding: 0;
-    width: 100%;
-    border-bottom: 1px solid black;
+    margin-bottom: 10em;
   }
 
   .row{
     display: block;
-      
   }
 
   #social-container ul li{
@@ -246,7 +241,21 @@ button{
     margin-bottom: 1em;
   }
 
-  #logo{
+  .toggle{
+    display: block;
+  }
 
+  .active{
+    display: block;
+  }
+
+  ul{
+    width: 100%;
+    display: none;
+  }
+
+  ul li{
+    display: block;
+    text-align: left;
   }
 }

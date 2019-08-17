@@ -3,7 +3,7 @@
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"];
 const API_KEY = 'AIzaSyAONVephJiOij7ryDiKQ-_RZ6p6Wvi4sLQ';
 const PL_PODCAST = 'PLmSkFzJxyNCIpVdhtdl5WBxnca7xwg3rM';
-const PL_REVIEW = 'PLmSkFzJxyNCIi21LboIt_SblqXuvnin9F';
+const PL_REVIEW = 'PLmSkFzJxyNCIiLqEzh4DFMtMxIZW6MZ5w';
 const PL_GAMEPLAY = 'PLmSkFzJxyNCJdVQ4mZ_sz7O6dFnHCYGz8';
 
 var pl_podcastR;
@@ -71,9 +71,24 @@ function start() {
 
   }).then(function(){
     insereTable(pl_podcastR);
-    $("#podcast").click(function(){insereTable(pl_podcastR);});
-    $("#gameplay").click(function(){insereTable(pl_gameplayR);});
-    $("#review").click(function(){insereTable(pl_reviewR);});
+    $("#podcast").on("click", function(){insereTable(pl_podcastR);});
+    $("#gameplay").on("click", function(){insereTable(pl_gameplayR);});
+    $("#review").on("click", function(){insereTable(pl_reviewR);});
+    
+    $(".menu").click(function(){
+      $("#menu-itens").toggleClass("active");
+    });
+
+    $("#podcast").on("click", function(){
+      $("#content-title h3").html("PODCAST");
+    });
+    $("#gameplay").on("click", function(){
+      $("#content-title h3").html("GAMEPLAY");
+    });
+    $("#review").on("click", function(){
+      $("#content-title h3").html("REVIEW");
+    });
+
   });
 
 }
@@ -81,6 +96,7 @@ function start() {
 function insereTable(table_data){
   var table, data, row, celula;
 
+  $("#table-content tbody tr").remove();
   data = table_data.items;
   table = document.getElementById('table-content').getElementsByTagName('tbody')[0];
 
@@ -97,7 +113,7 @@ function insereTable(table_data){
     table.appendChild(row);
     video = document.getElementById("video-container").getElementsByTagName("iframe")[0];
     link.addEventListener("click", function(){relationIframe(this);});
-    row.addEventListener("mouseover", function(){showPopUpDescription(this);});
+    row.addEventListener("mousemove", function(event){showPopUpDescription(this, event);});
     row.addEventListener("mouseout", function(){hidePopUpDescription(this);});
     if(i == 0){
       document.getElementById("video-container").getElementsByTagName("iframe")[0].setAttribute("src", 'https://www.youtube.com/embed/'+data[i].snippet.resourceId.videoId);
@@ -111,7 +127,7 @@ function relationIframe(Obj){
   video.setAttribute("src", Obj.getAttribute("href"));
 }
 
-function showPopUpDescription(Obj){
+function showPopUpDescription(Obj, event){
   var playlist = document.getElementById("content-title").getElementsByTagName("h3")[0].innerHTML;
   switch(playlist){
     case "PODCAST":
@@ -131,6 +147,7 @@ function showPopUpDescription(Obj){
   img.setAttribute("src", Obj.snippet.thumbnails.medium.url);
   document.getElementById("description-item").innerHTML = "<b>Descri&ccedil&atildeo:</b>"+Obj.snippet.description;
   $("#popup-description").css("display", "flex");
+  $("#popup-description").css("left", event.clientX+50);
 }
 
 function hidePopUpDescription(){

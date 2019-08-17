@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta name = "viewport" content="width=device-width, initial-scale = 1" />
+  <meta name = "viewport" content="width=device-width, initial-scale = 1, user-scalable=no" />
   <title>YouTube API</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -14,23 +14,24 @@
 
   <body>
 
+    <img id="logo" width="200px" height="auto" src ="css/devaneiologo_big.png">
+    </img>
+
     <!--Secao dde Menu-->
-    <div id="nav" class="row">
-      <div id="logo" class="column">
-        <img width="200px" src ="css/devaneiologo_big.png" class="menu-element">
-        </img>
-        <a id="menu-button" target="_blank"><i class="fa fa-bars" style="color:#5a5a5a;font-size: 40px;"></i></a>
+    <nav>
+      <div class="toggle">
+        <i class="fa fa-bars menu" aria-hidden="true" style="color: black;font-size: 40px;"></i>
       </div>
-      <div id="menu" class="column">
-        <a id="#podcast" href="" class="">PODCAST</a>
-        <a id="#review" href="" class="">REVIEW</a>
-        <a id="#gameplay" href="" class="">GAMEPLAY</a>
-        <a id="#" href="" class="">PATREON</a>
-      </div>
-    </div>
+      <ul id="menu-itens">
+        <li><a id="podcast">PODCAST</a></li>
+        <li><a id="review">REVIEW</a></li>
+        <li><a id="gameplay">GAMEPLAY</a></li>
+        <li><a id="" href="https://www.youtube.com" target="_blank" class="">PATREON</a></li>
+      </ul>
+    </nav>
 
     <div id="content-title">
-      <h3 class="" style="padding-top: 3em;">PODCAST</h3>
+      <h3>PODCAST</h3>
     </div>
 
     <!--Secao de Videos-->
@@ -47,11 +48,7 @@
       </div>
 
       <div id="ads-container" class="column">
-        <span>Você tá realmente obcecado pelos seus sonhos?
-          Menos desculpas e mais action. Pra chegar ao
-          next level você precisa de comprometimento e
-          muito hardwork. Quebre padrões e atinja a alta
-          performance em todas as áreas da sua vida.
+        <span>
         </span>
       </div>
 
